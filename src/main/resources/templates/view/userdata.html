@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+            <input  id="searchid" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+</head>
+<body>
+<script src="/Js/formhandler.js"></script>
+
+<table id="employeetable" class="table table-striped table-bordered" style="width:50%">
+    <thead>
+    <tr class="">
+<!--        <th>ID</th>-->
+<!--        <th class="table-danger"><a th:href="@{'/profileview'+${}"></a>User</th>-->
+        <th class="table-primary">User</th>
+        <th class="table-active">Name</th>
+        <th class="table-warning">Email</th>
+        <th class="table-primary">Password</th>
+        <th class="table-danger">Action</th>
+        <th class="table-sucess">Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr  id="head" th:each="employee: ${myformdata}">
+<!--        <td id="img" th:src="/images/userimage.png"></td>-->
+        <td id="imgid"><a th:href="@{'/profileview/'+${employee.getId()}}"><img th:src="@{images/userimage.png}"/></a></td>
+        <td  id="nameid"th:text="${employee.name}" ></td>
+        <td  id="emailid" th:text="${employee.email}" ></td>
+        <td  id="passid" th:text="${employee.password}"></td>
+<!--        <td id="delid"><a class="btn btn-danger">Delete</a>-->
+
+                    <td id="delid"><a th:href="@{'/delete/'+${employee.id}}" class="btn btn-danger">Delete</a>
+        <td id="upid"><a th:href="@{'/update/'+${employee.id}}" class="btn btn-primary">Update</a>
+
+    </tr>
+    </tbody>
+</table>
+
+hello
+<!--use always / fro image scr-->
+
+</body>
+
+</html>
